@@ -12,7 +12,7 @@ extension UIViewController {
     guard let currentWindows = self.sharedApplication?.windows else { return nil }
     var rootViewController: UIViewController?
     for window in currentWindows {
-      if let windowRootViewController = window.rootViewController, window.isKeyWindow {
+        if let windowRootViewController = window.rootViewController, window.isKeyWindow,window.windowLevel != UIWindow.Level.alert + 101 && window.windowLevel != UIWindow.Level.alert + 102 {
         rootViewController = windowRootViewController
         break
       }
